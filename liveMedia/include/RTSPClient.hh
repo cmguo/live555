@@ -39,7 +39,7 @@ along with this library; if not, write to the Free Software Foundation, Inc.,
 #endif
 #endif
 
-class LIVE555_EXPORT RTSPClient: public Medium {
+class RTSPClient: public Medium {
 public:
   static RTSPClient* createNew(UsageEnvironment& env, char const* rtspURL,
 			       int verbosityLevel = 0,
@@ -377,7 +377,7 @@ private:
 
 typedef void onRTSPClientCreationFunc(RTSPClient* newRTSPClient, Boolean requestStreamingOverTCP);
 
-class LIVE555_EXPORT HandlerServerForREGISTERCommand: public RTSPServer {
+class HandlerServerForREGISTERCommand: public RTSPServer {
 public:
   static HandlerServerForREGISTERCommand* createNew(UsageEnvironment& env, onRTSPClientCreationFunc* creationFunc,
 						    Port ourPort = 0, UserAuthenticationDatabase* authDatabase = NULL,

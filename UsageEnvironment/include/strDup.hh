@@ -24,24 +24,14 @@ along with this library; if not, write to the Free Software Foundation, Inc.,
 
 #include <string.h>
 
-#ifdef _WIN32
-# ifdef LIVE555_LIB
-#  define LIVE555_EXPORT __declspec(dllexport)
-# else
-#  define LIVE555_EXPORT __declspec(dllimport)
-# endif
-#else
-# define LIVE555_EXPORT
-#endif
-
-LIVE555_EXPORT char* strDup(char const* str);
+char* strDup(char const* str);
 // Note: strDup(NULL) returns NULL
 
-LIVE555_EXPORT char* strDupSize(char const* str);
+char* strDupSize(char const* str);
 // Like "strDup()", except that it *doesn't* copy the original.
 // (Instead, it just allocates a string of the same size as the original.)
 
-LIVE555_EXPORT char* strDupSize(char const* str, size_t& resultBufSize);
+char* strDupSize(char const* str, size_t& resultBufSize);
 // An alternative form of "strDupSize()" that also returns the size of the allocated buffer.
 
 #endif

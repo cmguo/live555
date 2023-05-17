@@ -25,21 +25,11 @@ along with this library; if not, write to the Free Software Foundation, Inc.,
 #include <Boolean.hh>
 #endif
 
-#ifdef _WIN32
-# ifdef LIVE555_LIB
-#  define LIVE555_EXPORT __declspec(dllexport)
-# else
-#  define LIVE555_EXPORT __declspec(dllimport)
-# endif
-#else
-# define LIVE555_EXPORT
-#endif
-
 // A class used for digest authentication.
 // The "realm", and "nonce" fields are supplied by the server
 // (in a "401 Unauthorized" response).
 // The "username" and "password" fields are supplied by the client.
-class LIVE555_EXPORT Authenticator {
+class Authenticator {
 public:
   Authenticator();
   Authenticator(char const* username, char const* password, Boolean passwordIsMD5 = False);

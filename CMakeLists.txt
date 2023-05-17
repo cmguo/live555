@@ -20,6 +20,7 @@ endmacro(source_group_by_dir)
  
 file(GLOB_RECURSE All_SOURCES ${LIVE555_SRC_ROOT}/BasicUsageEnvironment/*.cpp
                               ${LIVE555_SRC_ROOT}/BasicUsageEnvironment/*.c
+                              ${LIVE555_SRC_ROOT}/Live555Tunnel.cpp
                               ${LIVE555_SRC_ROOT}/liveMedia/*.cpp
                               ${LIVE555_SRC_ROOT}/liveMedia/*.c
                               ${LIVE555_SRC_ROOT}/groupsock/*.cpp
@@ -32,10 +33,10 @@ set(CMAKE_CXX_STANDARD 11)
 add_library(live555 SHARED ${All_SOURCES})
  
 target_include_directories(live555
-        PUBLIC ${LIVE555_SRC_ROOT}/BasicUsageEnvironment/include
-        PUBLIC ${LIVE555_SRC_ROOT}/liveMedia/include
-        PUBLIC ${LIVE555_SRC_ROOT}/groupsock/include
-        PUBLIC ${LIVE555_SRC_ROOT}/UsageEnvironment/include
+        PRIVATE ${LIVE555_SRC_ROOT}/BasicUsageEnvironment/include
+        PRIVATE ${LIVE555_SRC_ROOT}/liveMedia/include
+        PRIVATE ${LIVE555_SRC_ROOT}/groupsock/include
+        PRIVATE ${LIVE555_SRC_ROOT}/UsageEnvironment/include
         PRIVATE ${LIVE555_SRC_ROOT}/..)
  
 target_compile_options(live555
@@ -59,7 +60,7 @@ if (WIN32)
         PRIVATE _CRT_SECURE_NO_WARNINGS
         PRIVATE _WINSOCK_DEPRECATED_NO_WARNINGS
         PRIVATE NO_GETIFADDRS
-        PRIVATE LIVE555_LIB)
+        PRIVATE LIVE555_EXPORTS)
 endif()
  
 if (APPLE)

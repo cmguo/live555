@@ -101,7 +101,7 @@ private:
 
 typedef u_int16_t portNumBits;
 
-class LIVE555_EXPORT Port {
+class Port {
 public:
   Port(portNumBits num /* in host byte order */);
   

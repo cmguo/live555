@@ -50,7 +50,7 @@ class RTCPMemberDatabase; // forward
 
 typedef void ByeWithReasonHandlerFunc(void* clientData, char const* reason);
 
-class LIVE555_EXPORT RTCPInstance: public Medium {
+class RTCPInstance: public Medium {
 public:
   static RTCPInstance* createNew(UsageEnvironment& env, Groupsock* RTCPgs,
 				 unsigned totSessionBW, /* in kbps */

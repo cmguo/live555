@@ -50,7 +50,7 @@ class TaskScheduler; // forward
 
 // An abstract base class, subclassed for each use of the library
 
-class LIVE555_EXPORT UsageEnvironment {
+class UsageEnvironment {
 public:
   Boolean reclaim();
       // returns True iff we were actually able to delete our object
